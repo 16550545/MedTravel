@@ -9,13 +9,56 @@ Important links for the project ⬇️
 - [Requirements](https://docs.google.com/document/d/1JblDgISOdw1_QR6QKgmp1FKlSLg8fkYq0PVs30nJd54/edit)
 
 - [Sendgrid](https://app.sendgrid.com/)
-
 # TODO:
 
 - Simple frontend design
 - Rewrite web app architecture
 - Review the main AR OpenCV module
 - deploy
+
+# How to?
+
+To run the project: 
+
+```bash
+git clone repo
+```
+
+```bash
+cd repo
+```
+Create a new venv
+```bash
+python -m venv venv
+```
+Activate venv
+```bash
+venv\Scripts\activate
+```
+Install the dependencies
+```
+pip install -r requirements.txt
+```
+Create 'FLASK_APP' env
+```bash
+$env:FLASK_APP="\src\medtravel.py"
+$env:FLASK_DEBUG=1
+```
+Open your browser on localhost:5000
+
+to use email functionality...
+* [Create a sendgrid account](https://sendgrid.com/)
+* Get your API Key.
+* Create a new sender with an email address
+* Configure env variables
+```bash
+$env:SENDGRID_API_KEY='your api key'
+$env:FROM_EMAIL='sender email'
+$env:TO_EMAIL='email address that will receive the emails'
+$env:FLASKY_ADMIN=1 
+```
+
+Enjoy!
 
 # about...
 
