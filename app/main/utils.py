@@ -1,24 +1,18 @@
-# TODO: 
-# Add more utils to the project
-from threading import Thread
-from flask import current_app
+import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
-import os
 
-def send_async_email(app, msg):
-    with app.app_context():
-        sg = SendGridAPIClient(app.config['SENDGRID_API_KEY'])
-        res = sg.send(msg)
-            
-# Function to send mail using SendGridAPIClient
-# TODO: Write a better func to send email
-def send_email(to, subject, template, **kwargs):
-    app = current_app._get_current_object()
-    msg = Mail(from_email=app.config['FROM_EMAIL'], 
-                    to_emails=to, 
-                    subject=subject, html_content=template)
-
-    thr = Thread(target=send_async_email, args=[app, msg])
-    thr.start()
-    return thr
+def send_email(subject, content):
+    message = Mail(
+        from_email='jalejandranunezt@gmail.com',
+        to_emails='nuezjessica8@gmail.com',
+        subject=subject,
+        html_content=content)
+    try:
+        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+        response = sg.send(message)
+        print(response.status_code)
+        print(response.body)
+        print(response.headers)
+    except Exception as e:
+        print(e.message)

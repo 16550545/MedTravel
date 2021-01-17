@@ -139,4 +139,5 @@ dmypy.json
 .pytype/
 
 # Cython debug symbols
-cython_debug/
+cython_debug/sendgrid.env
+sendgrid.env
