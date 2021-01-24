@@ -5,6 +5,9 @@ import time
 from flask import Flask, render_template,Response, request
 
 
+#TODO: read the "fixme", also integrate the buttons and add funtionality
+
+
 app = Flask(__name__)
 
 
@@ -37,12 +40,14 @@ def gen():
         ran
 
     landmarks_points2 = []
-    img = cv2.imread("ferb.jpeg")
+    #FIXME: Cambiar ruta a tu directorio local, por ahora
+    img = cv2.imread("C:/Users/you/MedTravel/app/static/img/example.jpeg")
+    cv2.imshow('image', img)
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     mask = np.zeros_like(img_gray)
 
     detector = dlib.get_frontal_face_detector()
-    predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
+    predictor = dlib.shape_predictor("C:/Users/you/MedTravel/app/main/shape_predictor_68_face_landmarks.dat")
 
     indexes_triangles = []
 
@@ -189,7 +194,7 @@ def gen():
 
     cap.release()
 
-@app.route('/', methods = ['POST', 'GET'])
+'''@app.route('/', methods = ['POST', 'GET'])
 def index():
     global option
     """Video streaming"""
@@ -207,5 +212,6 @@ def video_feed():
                 mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+#if __name__ == '__main__':
+#    app.run(debug=True) '''
+
