@@ -2,14 +2,15 @@ import cv2
 import numpy as np
 import dlib
 import time
-from flask import Flask, render_template,Response, request
+from flask import Flask, render_template, Response, request
+from pathlib import Path
 
 
 #TODO: read the "fixme", also integrate the buttons and add funtionality
 
-
 app = Flask(__name__)
 
+cwd = Path.cwd()
 
 cap = cv2.VideoCapture(0)
 time.sleep(2.0)
@@ -40,14 +41,14 @@ def gen():
         ran
 
     landmarks_points2 = []
-    #FIXME: Cambiar ruta a tu directorio local, por ahora
-    img = cv2.imread("C:/Users/you/MedTravel/app/static/img/example.jpeg")
+    #FIXED: used cwd to calculate rel path
+    img = cv2.imread(str(cwd) + "/app/main/res/img/example.jpeg")
     cv2.imshow('image', img)
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     mask = np.zeros_like(img_gray)
 
     detector = dlib.get_frontal_face_detector()
-    predictor = dlib.shape_predictor("C:/Users/you/MedTravel/app/main/shape_predictor_68_face_landmarks.dat")
+    predictor = dlib.shape_predictor(str(cwd) + "/app/main/res/shape_predictor_68_face_landmarks.dat")
 
     indexes_triangles = []
 
