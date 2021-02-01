@@ -33,12 +33,16 @@ def gen():
     global ran
     if  option.get("valor") == "1":
         ran = range(17,35)
+        print("valor 1")
     elif option.get("valor") == "2":
         ran = range(61,67)
+        print("valor 2")
     elif option.get("valor") == "3":
         ran = range(48,68)
+        print("valor 3")
     else:
         ran
+        print("Valor P")
 
     landmarks_points2 = []
     #FIXED: used cwd to calculate rel path
@@ -57,7 +61,7 @@ def gen():
     for face in faces:
         landmarks = predictor(img_gray, face)
         landmarks_points = []
-        
+
         for n in ran:
             x = landmarks.part(n).x
             y = landmarks.part(n).y
@@ -215,4 +219,3 @@ def video_feed():
 
 #if __name__ == '__main__':
 #    app.run(debug=True) '''
-

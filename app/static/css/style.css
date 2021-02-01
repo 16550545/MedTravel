@@ -286,7 +286,7 @@ section {
 
 }
 
-.button {
+.boton {
   flex: 1 1 auto;
   margin: 10px;
   padding: 20px;
@@ -297,9 +297,11 @@ section {
   overflow:hidden;
   border-radius: 30px;
   transition: transform .2s;
-
+  background-color: transparent;
+  color: white;
 }
-.button:hover {
+
+.boton:hover {
   background-color: rgba(255,255,255,0.5);
   color: white;
   transform: scale(1.1);

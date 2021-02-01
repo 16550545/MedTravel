@@ -5,12 +5,12 @@ from .utils import *
 from .realtime_face_swapping import *
 
 
-@main.route('/', methods = ['POST', 'GET'])
+@main.route('/', methods = ['GET'])
 def index():
     user = User(name="Daniel", lastname="Limas", lastname_2="Palma", email="a@gmail.com", procedure="Teeth whitening")
     global option
     """Video streaming"""
-    if request.method == 'POST':
+    if request.method == 'GET':
         result = request.form
         option = result
         return render_template('index.html', option = result, user=user)
