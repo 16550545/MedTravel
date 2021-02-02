@@ -1,176 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>MedTravel</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>MedTravel</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <!-- Favicons -->
+    <link href="/static/img/favicon.png" rel="icon" />
 
-  <!-- Favicons -->
-  <link href="/static/img/favicon.png" rel="icon">
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i"
+      rel="stylesheet"
+    />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link
+      href="/static/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="/static/vendor/icofont/icofont.min.css" rel="stylesheet" />
 
-  <!-- Vendor CSS Files -->
-  <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/static/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/static/css/style.css" rel="stylesheet" />
 
-  <!-- Template Main CSS File -->
-  <link href="/static/css/style.css" rel="stylesheet">
-
-  <script>
-        idImagenVisible="imageF";
-        function mostrar(id)
-        {
-            document.getElementById(idImagenVisible).style.display="none";
-            document.getElementById(id).style.display="block";
-
-        }
+    <script>
+      idImagenVisible = "imageF";
+      function mostrar(id) {
+        document.getElementById(idImagenVisible).style.display = "none";
+        document.getElementById(id).style.display = "block";
+      }
     </script>
     <style>
-            .oculto {display:none;}
+      .oculto {
+        display: none;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center">
-    <div class="container d-flex flex-column align-items-center">
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+      <div class="container d-flex flex-column align-items-center">
+        <h1>MedTravel</h1>
+        <h2>
+          We are working hard to improve our website and will be ready to launch
+          it later.
+        </h2>
 
-      <h1>MedTravel</h1>
-      <h2>We are working hard to improve our website and will be ready to launch it later.</h2>
-
-      <div class="containerV">
-        <img src="{{ url_for('main.video_feed') }}" id=camera >
-<!--
+        <div class="containerV">
+          <img src="{{ url_for('main.video_feed') }}" id="camera" />
+          <!--
         <img src="/static/img/canvas.jpg" class="rounded img-fluid" id=imageF />
         <div class="overlay"  onclick="mostrar('camera')" >
           <div class="text">Pruebalo</div>
           <img src="{{ url_for('main.video_feed') }}" id=camera class="oculto" >
         </div>
 -->
-
-      </div>
-
-      <div class="functions text-center">
-        <form action="{{ url_for('main.index') }}" method="GET">
-          <button class="boton" value="1">Blanqueamiento dental</button>
-        </form>
-        <form action="{{ url_for('main.index') }}" method="GET">
-          <button class="boton" value="2">Implantes dentales</button>
-        </form>
-        <form action="{{ url_for('main.index') }}" method="GET">
-          <button class="boton" value="3">Brackets</button>
-        </form>
-      </div>
-
-      <div class="social-links text-center">
-        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-      </div>
-
-    </div>
-  </header>
-  <!-- End #header -->
-
-  <main id="main">
-  <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>About Us</h2>
-          <img src="/static/img/doctor.jpeg" class="profile-image mb-3 rounded-circle" width="150" height="150">
-          <h1>Orthodontist</h1>
-          <p>About Doctor</p>
         </div>
 
-      </div>
-    </section>
-  <!-- End About Us Section -->
-
-  <!-- ======= Contact Us Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact Us</h2>
+        <div class="functions text-center">
+          <form action="{{ url_for('main.index') }}" method="GET">
+            <button class="boton" name="value" value="1">
+              Blanqueamiento dental
+            </button>
+          </form>
+          <form action="{{ url_for('main.index') }}" method="GET">
+            <button class="boton" name="value" value="2">
+              Implantes dentales
+            </button>
+          </form>
+          <form action="{{ url_for('main.index') }}" method="GET">
+            <button class="boton" name="value" value="3">Brackets</button>
+          </form>
         </div>
 
-        <div class="row justify-content-center">
-          <div class="col-lg-7 mt-2 mt-lg-0 d-flex align-items-stretch">
+        <div class="social-links text-center">
+          <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+          <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+          <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+        </div>
+      </div>
+    </header>
+    <!-- End #header -->
 
-            <form action="{{ url_for('main.email') }}" method="post" role="form" class="php-email-form">
-
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validate"></div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="name">Your LastName</label>
-                  <input type="text" name="lastname" class="form-control" id="lastname" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validate"></div>
-                </div>
-
-              </div>
-
-              <div class="form-group">
-                <label for="name">Email</label>
-                <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
-                <div class="validate"></div>
-              </div>
-
-              <div class="form-group">
-                <label for="name">Phone</label>
-                <input type="tel" name="phone" class="form-control" id="phone" data-rule="minlen:4" data-msg="Please enter a valid phone" />
-                <div class="validate"></div>
-              </div>
-
-              <div class="form-group">
-                <label for="name">Type of procedure</label>
-                <input type="text" class="form-control" name="procedure" id="procedure" data-rule="minlen:4" data-msg="Please enter a valid type of procedure" />
-                <div class="validate"></div>
-              </div>
-
-
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message"></div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-
+    <main id="main">
+      <!-- ======= About Us Section ======= -->
+      <section id="about" class="about">
+        <div class="container">
+          <div class="section-title">
+            <h2>About Us</h2>
+            <img
+              src="/static/img/doctor.jpeg"
+              class="profile-image mb-3 rounded-circle"
+              width="150"
+              height="150"
+            />
+            <h1>Orthodontist</h1>
+            <p>About Doctor</p>
           </div>
         </div>
+      </section>
+      <!-- End About Us Section -->
 
-      </div>
-    </section>
-  <!-- End Contact Us Section -->
-  </main>
+      <!-- ======= Contact Us Section ======= -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="section-title">
+            <h2>Contact Us</h2>
+          </div>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-    </div>
-  </footer>
-  <!-- End #footer -->
+          <div class="row justify-content-center">
+            <div class="col-lg-7 mt-2 mt-lg-0 d-flex align-items-stretch">
+              <form
+                action="{{ url_for('main.email') }}"
+                method="post"
+                role="form"
+                class="php-email-form"
+              >
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="name">Your Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      class="form-control"
+                      id="name"
+                      data-rule="minlen:4"
+                      data-msg="Please enter at least 4 chars"
+                    />
+                    <div class="validate"></div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="name">Your LastName</label>
+                    <input
+                      type="text"
+                      name="lastname"
+                      class="form-control"
+                      id="lastname"
+                      data-rule="minlen:4"
+                      data-msg="Please enter at least 4 chars"
+                    />
+                    <div class="validate"></div>
+                  </div>
+                </div>
 
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+                <div class="form-group">
+                  <label for="name">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    id="email"
+                    data-rule="email"
+                    data-msg="Please enter a valid email"
+                  />
+                  <div class="validate"></div>
+                </div>
 
-  <!-- Vendor JS Files -->
-  <script src="/static/vendor/jquery/jquery.min.js"></script>
-  <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/static/vendor/php-email-form/validate.js"></script>
+                <div class="form-group">
+                  <label for="name">Phone</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    class="form-control"
+                    id="phone"
+                    data-rule="minlen:4"
+                    data-msg="Please enter a valid phone"
+                  />
+                  <div class="validate"></div>
+                </div>
 
-  <!-- Template Main JS File -->
-  <script src="/static/js/main.js"></script>
+                <div class="form-group">
+                  <label for="name">Type of procedure</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="procedure"
+                    id="procedure"
+                    data-rule="minlen:4"
+                    data-msg="Please enter a valid type of procedure"
+                  />
+                  <div class="validate"></div>
+                </div>
 
-</body>
+                <div class="mb-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message"></div>
+                </div>
+                <div class="text-center">
+                  <button type="submit">Send Message</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Contact Us Section -->
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="container"></div>
+    </footer>
+    <!-- End #footer -->
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/static/js/main.js"></script>
+  </body>
 </html>
