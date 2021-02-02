@@ -16,12 +16,6 @@ cwd = Path.cwd()
 cap = cv2.VideoCapture(0)
 time.sleep(2.0)
 
-global option
-option = {'valor': 0}
-
-global ran
-ran = range(0, 68)
-
 def extract_index_nparray(nparray):
     index = None
     for num in nparray[0]:
@@ -31,23 +25,25 @@ def extract_index_nparray(nparray):
 
 def gen(value):
     global ran
-    # This range was the eyes and the nose
+    # This range represents the facial landmarks of the mouth
+    ran = range(48,68)
+    # Teeth whitening
     if  value == "1":
-        ran = range(17,35)
-    # This one doesn't work
+        img = cv2.imread(str(cwd) + "/app/main/res/img/smile_male.jpg")
+    # This one is a simple smile
     elif value == "2":
-        ran = range(61,67)
-    # The third range is the important one... mouth
+        img = cv2.imread(str(cwd) + "/app/main/res/img/new_smile.jpg")
+    # This is braces
     elif value == "3":
-        ran = range(48,68)
-    # Else, swap the full face
+        img = cv2.imread(str(cwd) + "/app/main/res/img/braces_female_1.jpg")
+    # Else, swap for a smile
     else:
-        ran
+        img = cv2.imread(str(cwd) + "/app/main/res/img/smile_male.jpg")
+
 
     landmarks_points2 = []
     #FIXED: used cwd to calculate rel path
-    img = cv2.imread(str(cwd) + "/app/main/res/img/example.jpeg")
-    cv2.imshow('image', img)
+    # cv2.imshow('image', img)
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     mask = np.zeros_like(img_gray)
 
@@ -194,6 +190,7 @@ def gen(value):
             break
 
         cv2.imwrite('pic.jpg', seamlessclone)
+        # This might be a problem, no matter the scale of the app
         yield (b'--frame\r\n'
            b'Content-Type: image/jpeg\r\n\r\n' + open('pic.jpg', 'rb').read() + b'\r\n')
 
