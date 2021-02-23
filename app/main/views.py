@@ -35,7 +35,19 @@ def gen(value):
         img = cv2.imread(str(cwd) + "/app/main/res/img/new_smile.jpg")
     # This is braces
     elif value == "3":
-        img = cv2.imread(str(cwd) + "/app/main/res/img/braces_female_1.jpg")
+        img = cv2.imread(str(cwd) + "/app/main/res/img/braces_female_3.jpg")
+    # This is braces blue
+    elif value == "4":
+        img = cv2.imread(str(cwd) + "/app/main/res/img/braces_female_3.jpg")
+    # This is braces yellow
+    elif value == "5":
+        img = cv2.imread(str(cwd) + "/app/main/res/img/braces_female_3.jpg")
+    # This is braces grey
+    elif value == "6":
+        img = cv2.imread(str(cwd) + "/app/main/res/img/braces_female_3.jpg")
+    # This is braces white
+    elif value == "7":
+        img = cv2.imread(str(cwd) + "/app/main/res/img/braces_female_3.jpg")
     # Else, swap for a smile
     else:
         img = cv2.imread(str(cwd) + "/app/main/res/img/smile_male.jpg")
