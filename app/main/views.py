@@ -41,13 +41,13 @@ def gen(value):
         img = cv2.imread(str(cwd) + "/app/main/res/img/braces_female_5_azul.jpg")
     # This is braces yellow
     elif value == "5":
-        img = cv2.imread(str(cwd) + "/app/main/res/img/braces_female_3_amarillo.jpg")
+        img = cv2.imread(str(cwd) + "/app/main/res/img/braces_female_5_amarillo.jpg")
     # This is braces red
     elif value == "6":
-        img = cv2.imread(str(cwd) + "/app/main/res/img/braces_female_3_red.jpg")
+        img = cv2.imread(str(cwd) + "/app/main/res/img/braces_female_5_rojo.jpg")
     # This is braces white
     elif value == "7":
-        img = cv2.imread(str(cwd) + "/app/main/res/img/braces_female_3_blanco.jpg")
+        img = cv2.imread(str(cwd) + "/app/main/res/img/braces_female_5_blanco.jpg")
     # Else, swap for a smile
     else:
         img = cv2.imread(str(cwd) + "/app/main/res/img/smile_male.jpg")
