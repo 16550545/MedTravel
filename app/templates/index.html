@@ -6,6 +6,17 @@
     <title>MedTravel</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
+    <meta
+      property="og:url"
+      content="https://www.your-domain.com/your-page.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Your Website Title" />
+    <meta property="og:description" content="Your description" />
+    <meta
+      property="og:image"
+      content="https://www.your-domain.com/path/image.jpg"
+    />
 
     <!-- Favicons -->
     <link href="/static/img/favicon.png" rel="icon" />
@@ -72,20 +83,40 @@
               Implantes dentales
             </button>
           </form>
-          <div class="dropdown" >
-          <form action="{{ url_for('main.index') }}" method="GET">
-            <button class="dropbtn" name="value" value="3">Brackets</button>
-            <div class="dropdown-content">
-              <!-- ======= Azul ======= -->
-              <button class="dropbtnlinks" style="background: rgb(51, 102, 255);" name="value" value="4"></button>
-              <!-- ======= Amarillo ======= -->
-              <button class="dropbtnlinks" style="background: rgb(255, 255, 102);" name="value" value="5"></button>
-              <!-- ======= Rojo ======= -->
-              <button class="dropbtnlinks" style="background: rgb(255, 51, 51)" name="value" value="6"></button>
-              <!-- ======= Blanco ======= -->
-              <button class="dropbtnlinks" style="background: white;" name="value" value="7"></button>
-            </div>
-          </form>
+          <div class="dropdown">
+            <form action="{{ url_for('main.index') }}" method="GET">
+              <button class="dropbtn" name="value" value="3">Brackets</button>
+              <div class="dropdown-content">
+                <!-- ======= Azul ======= -->
+                <button
+                  class="dropbtnlinks"
+                  style="background: rgb(51, 102, 255)"
+                  name="value"
+                  value="4"
+                ></button>
+                <!-- ======= Amarillo ======= -->
+                <button
+                  class="dropbtnlinks"
+                  style="background: rgb(255, 255, 102)"
+                  name="value"
+                  value="5"
+                ></button>
+                <!-- ======= Rojo ======= -->
+                <button
+                  class="dropbtnlinks"
+                  style="background: rgb(255, 51, 51)"
+                  name="value"
+                  value="6"
+                ></button>
+                <!-- ======= Blanco ======= -->
+                <button
+                  class="dropbtnlinks"
+                  style="background: white"
+                  name="value"
+                  value="7"
+                ></button>
+              </div>
+            </form>
           </div>
         </div>
 
@@ -229,5 +260,20 @@
 
     <!-- Template Main JS File -->
     <script src="/static/js/main.js"></script>
+
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+      (function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src =
+          "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+    </script>
   </body>
 </html>

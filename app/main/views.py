@@ -1,5 +1,7 @@
 # Flask imports
 from flask import render_template, request, Response
+import random
+import hashlib
 from . import main
 from ..models import User
 from .utils import *
@@ -23,7 +25,7 @@ def extract_index_nparray(nparray):
         break
     return index
 
-def gen(value):
+def gen(value, session_id):
     global ran
     # This range represents the facial landmarks of the mouth
     ran = range(48,68)
@@ -201,20 +203,28 @@ def gen(value):
         if key == 27:
             break
 
-        cv2.imwrite('pic.jpg', seamlessclone)
+        cv2.imwrite('pic/pic_' + session_id + '.jpg', seamlessclone)
         # This might be a problem, no matter the scale of the app
         yield (b'--frame\r\n'
-           b'Content-Type: image/jpeg\r\n\r\n' + open('pic.jpg', 'rb').read() + b'\r\n')
+           b'Content-Type: image/jpeg\r\n\r\n' + open('pic/pic_' + session_id + '.jpg', 'rb').read() + b'\r\n')
 
     cap.release()
 
 
 @main.route('/', methods = ['GET'])
 def index():
+
+    global session_id
+    session_id_str = 'session' + str(random.random())
+    res = hashlib.md5(b'%r' %(session_id_str))
+    session_id = res.hexdigest()
+
     global option
     """Video streaming"""
     if request.method == 'GET':
         # Get the selected option via query params
+        # TODO: Create an options Dictionary, with the 
+        # option value, and maybe a sessionID
         option = request.args.get('value')
         return render_template('index.html', option=option)
     else:
@@ -240,5 +250,5 @@ def email():
 def video_feed():
     """Video streaming route. Put this in the src attribute of an img tag."""
     # Pass the option to the main function to change images based on the value
-    return Response(gen(option),
+    return Response(gen(option, session_id),
                 mimetype='multipart/x-mixed-replace; boundary=frame')
